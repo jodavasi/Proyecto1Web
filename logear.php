@@ -1,20 +1,43 @@
 <?php
-    require 'conexionDB.php';
+    require_once 'conexionDB.php';
     
     session_start();
-    $usuario = $_POST['user'];
-    $password = $_POST['password'];
+    $usuario_login = $_POST['user_login'];
+    $password_login = $_POST['password_login'];
 
-    $query = "SELECT COUNT(*) FROM usuario where cedula = '$usuario' and pass = '$password' ";
-    $consulta = mysqli_query($conexion,$q);
-    $array = mysqli_fetch_array($consulta);
-    if($array['contar']>0){
-        header("location: paginaPrincipalAdmin.php");
-        $_SESSION['username'] = $usuario;
+    echo '<pre>';
 
-    }else{
+    var_dump($usuario_login);
+    var_dump($password_login);
+    
+    echo '<pre>';
 
-        echo "Datos erroneos";
+    $sql = 'SELECT * FROM usuario WHERE username = ?';
+
+    $sentencia = $pdo->prepare($sql);
+    $sentencia->execute(array($usuario_login));
+    $resultado = $sentencia->fetch();
+    
+    var_dump($resultado);
+
+    if(!$resultado){
+        echo "el usuario no existe";
+        header("Location: login.php");
+        
+    }
+    
+    if(password_verify($password_login, $resultado['contrasena'] ) && $resultado['rol']=="c"){
+        $_SESSION['user'] = $usuario_login;
+        header("Location: principalCliente.php");
+
+
+    }elseif(password_verify($password_login, $resultado['contrasena'] ) && $resultado['rol']=="a"){
+        $_SESSION['user'] = $usuario_login;
+        header("Location: principalAdmin.php");
+
+    }elseif(!password_verify($password_login, $resultado['contrasena'])){
+        header("Location: login.php");
+
     }
 
 

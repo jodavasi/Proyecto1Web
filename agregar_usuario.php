@@ -1,5 +1,5 @@
 <?php
-
+    include_once 'conexionDB.php';
     $user = $_POST['nombre_usuario'];
     $username = $_POST['nombre'];
     $userlastname = $_POST['apellido'];
@@ -28,14 +28,16 @@
 
     if(password_verify($pass2,$pass1)){
         echo "Contrasena valida!<br>";
-        include_once 'conexionDB.php';
-        $sql_agregar = 'INSERT INTO usuario (apellido,cedula,contrasena,nombre,rol,telefono,username) VALUES (?,?,?,?,?,?,?)';
-        
-        $sentencia_agregar->execute(array($userlastname,$cedula,$pass1,$username,$rol,$telefono,$user));
+        try{
+        $sql_agregar = 'INSERT INTO usuario (apellido,cedula,contrasena,nombre,rol,telefono,username,mail) VALUES (?,?,?,?,?,?,?,?)';
+        $sentencia_agregar->execute(array($userlastname,$cedula,$pass1,$username,$rol,$telefono,$user,$mail));
         var_dump($sql_agregar);
         
         var_dump($sentencia_agregar);
-
+        
+        }catch(Error $error){
+            echo $error;
+        }
 
 
         $sentencia_agregar = null;

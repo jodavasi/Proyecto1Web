@@ -7,10 +7,10 @@
     try{
 
         $pdo = new PDO($link,$usuario,$pass);
-        echo "CONECTADO";
+        //echo "CONECTADO";
 
 
-    }catch(PDOExecption $e){
+    }catch(PDOException $e){
 
 
         print("Error!: ". $e->getMessage() ."<br/>");
