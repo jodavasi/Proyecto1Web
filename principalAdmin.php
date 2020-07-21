@@ -36,9 +36,8 @@
           Categorias
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Categorias Existentes</a>
-          <a class="dropdown-item" href="#">Crear Categoria</a>
-          <a class="dropdown-item" href="#">Editar Categoria</a>
+          <a class="dropdown-item" href="categoriaEditar">Categorias Existentes</a>
+          <a class="dropdown-item" href="categoriaNueva">Crear Categoria</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -49,6 +48,7 @@
           <a class="dropdown-item" href="#">Ver Productos</a>
           <a class="dropdown-item" href="#">Eliminar Productos</a>
           <a class="dropdown-item" href="#">Editar Productos</a>
+          <a class="dropdown-item" href="#">Llenar Productos</a>
         </div>
       </li>
       <li class="nav-item">
@@ -57,6 +57,12 @@
     </ul>
   </div>
 </nav>
+
+<div class="contenido">
+
+
+
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
