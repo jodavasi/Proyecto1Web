@@ -2,16 +2,27 @@
     include_once '../conexionDB.php';
 
 
-    $sql_leer = 'SELECT * FROM categoria';
+    $sql_leer = 'SELECT * FROM producto';
 
     $gsent = $pdo->prepare($sql_leer);
     $gsent->execute();
 
     $resultado = $gsent->fetchAll();
 
+
+    $sql_leer = 'SELECT * FROM categoria';
+
+    $gsent_categoria = $pdo->prepare($sql_leer);
+    $gsent_categoria->execute();
+
+    $resultado_categoria = $gsent_categoria->fetchAll();
+
+
+
+
     if($_GET){
          $id = $_GET['id'];
-         $sql_unico = 'SELECT * FROM categoria WHERE nombre=?';
+         $sql_unico = 'SELECT * FROM producto WHERE nombre=?';
          $gsent_unico = $pdo->prepare($sql_unico);
          $gsent_unico->execute(array($id));
          $resultado_unico = $gsent_unico->fetch();
@@ -36,7 +47,8 @@
     
 </head>
 <body>
-    <div class="container mt-5">
+
+   <div class="container mt-5">
         <div class="row">
             <div class="col-md-5">
 
@@ -44,11 +56,17 @@
                     foreach($resultado as $dato):
                 ?>
                 <div class="alert alert-primary" role="alert">
-                    <h3>Categoria: <?php echo $dato['nombre'];
-                    $datoNombre = $dato['nombre']?></h3>
-                    <h3>Codigo: <?php echo $dato['cod_categoria']?></h3>
+                    <p><?php echo $dato['categoria']?></p>
+                    <h3><?php echo $dato['nombre']?></h3>
+                    <h5>$<?php echo $dato['precio']?></h5>
+                    <p><?php echo $dato['descripcion']?></p>
+                    <p><?php echo $dato['stock']?></p>
+
+                    <img src="../img/<?php echo $dato['imagen']?>" alt="">
+                    <br>
                     <a href="index.php?id=<?php echo $dato['nombre']?>">Editar</a>
-                </div>
+                    <a href="eliminarProducto.php?id=<?php echo $dato['SKU']?>">Eliminar</a>
+                </div>  
                 <?php
                     endforeach
                 ?>
@@ -62,11 +80,26 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="card">
-                                <form method="GET" action="editarCategoria.php" class="box">
-                                    <h1>EDITAR</h1>
-                                    <input type="text" class="form-control" name="edit_categoria" value="<?php echo $resultado_unico['nombre']?>">
-                                    <input type="text" class="form-control" name="edit_codigo" value="<?php echo $resultado_unico['cod_categoria']?>">
-                                    <input type="hidden" class="form-control" name="categoria_actual" value="<?php echo $resultado_unico['nombre']?>">
+                                <form method="GET" action="editarProducto.php" class="box">
+                                    <h1>Editar</h1>
+                                    <input type="text" name="productoSKU_edit" placeholder="Codigo SKU" value="<?php echo $resultado_unico['SKU']?>">            
+                                    <input type="text" name="productoNombre_edit" placeholder="Nombre del producto" value="<?php echo $resultado_unico['nombre']?>">            
+                                    <input type="text" name="productoDescripcion_edit" placeholder="Descripcion" value="<?php echo $resultado_unico['descripcion']?>">            
+                                    <input type="file" name="productoImage_edit" placeholder="" require>  
+                                    <br> 
+                                    <br>             
+                                    <select name="productoCategoria_edit" id="productoCategoria">
+                                        <?php
+                                            foreach($resultado_categoria as $dato):
+                                        ?>
+                                        <option value="<?php echo $dato['nombre']?>"><?php echo $dato['nombre']?></option>
+                                        <?php
+                                            endforeach
+                                        ?>
+                                    </select>                     
+                                    <input type="text" name="productoStock_edit" placeholder="Stock" value="<?php echo $resultado_unico['stock']?>">            
+                                    <input type="text" name="productoPrecio_edit" placeholder="Precio(Dolares Americanos)" value="<?php echo $resultado_unico['precio']?>">  
+                                    <input type="hidden" class="form-control" name="SKU_actual" value="<?php echo $resultado_unico['SKU']?>">          
                                     <button type="submit">Guardar</button>
                                 </form>
                             </div>

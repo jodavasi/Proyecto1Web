@@ -45,11 +45,11 @@ $resultado = $gsent->fetchAll();
                     <input type="file" name="productoImage" placeholder="" required>  
                     <br> 
                     <br>             
-                    <select name="productoCategoria">
+                    <select name="productoCategoria" id="productoCategoria">
                         <?php
                             foreach($resultado as $dato):
                         ?>
-                        <option value=""><?php echo $dato['nombre']?></option>
+                        <option value="<?php echo $dato['nombre']?>"><?php echo $dato['nombre']?></option>
                         <?php
                             endforeach
                         ?>

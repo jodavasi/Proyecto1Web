@@ -62,7 +62,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="card">
-                                <form method="GET" action="editarCategoria.php" class="box">
+                                <form method="GET" action="editarProducto.php" class="box">
                                     <h1>EDITAR</h1>
                                     <input type="text" class="form-control" name="edit_categoria" value="<?php echo $resultado_unico['nombre']?>">
                                     <input type="hidden" class="form-control" name="edit_codigo" value="<?php echo $resultado_unico['cod_categoria']?>">

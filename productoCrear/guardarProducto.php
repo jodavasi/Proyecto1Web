@@ -3,6 +3,7 @@
     require_once '../conexionDB.php';
     
     session_start();
+    
     $productoSKU = $_POST['productoSKU'];
     $productoNombre = $_POST['productoNombre'];
     $productoDescripcion = $_POST['productoDescripcion'];
