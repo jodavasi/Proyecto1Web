@@ -15,5 +15,5 @@
     $sentencia_eliminar->execute(array($anterior));
 
 
-    header("Location: index.php");
+    header("Location: ../principalAdmin.php");
 ?>
