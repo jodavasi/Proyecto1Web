@@ -3,7 +3,7 @@
     session_start();
     $anterior = $_GET['id'];
     
-     echo $anterior;
+    //  echo $anterior;
 
 
 
