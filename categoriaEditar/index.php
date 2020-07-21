@@ -1,6 +1,8 @@
 <?php
     include_once '../conexionDB.php';
 
+    
+
 
     $sql_leer = 'SELECT * FROM categoria';
 
@@ -48,6 +50,7 @@
                     $datoNombre = $dato['nombre']?></h3>
                     <!-- <h3>Codigo: <?php //echo $dato['cod_categoria']?></h3> -->
                     <a href="index.php?id=<?php echo $dato['nombre']?>">Editar</a>
+                    <a href="eliminarCategoria.php?id=<?php echo $dato['nombre']?>">Eliminar</a>
                 </div>
                 <?php
                     endforeach

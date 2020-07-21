@@ -3,11 +3,16 @@
     require_once '../conexionDB.php';
     
     session_start();
-    $nueva_categoria_nombre = $_POST['nueva_categoria_nombre'];
-    // $nueva_categoria_codigo = $_POST['nueva_categoria_codigo'];
+    
+    $categoriaNombre = $_POST['categoriaNombre'];
+    
 
-    $sql_agregar = 'INSERT INTO categoria(nombre) VALUES (?)';
+    echo $categoriaNombre;
+   
+    
+
+    $sql_agregar = 'INSERT INTO categoria(nombre,cod_categoria) VALUES (?,?)';
     $sentencia_agregar  = $pdo->prepare($sql_agregar);
-    $sentencia_agregar->execute(array($nueva_categoria_nombre));
+    $sentencia_agregar->execute(array($categoriaNombre,$categoriaNombre));
     header("Location: ../principalAdmin.php");
 ?>

@@ -34,7 +34,7 @@
                 </form>
                 <form action="registro.php" method="POST">
                     <button type="submit">REGISTRAR</button>
-
+                </form> 
                 </div>
                 <div>
                     

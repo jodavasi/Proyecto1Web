@@ -58,7 +58,11 @@ $resultado_ventas = $gsent_ventas->fetch();
 
                         
                     </div>
+                    
                 </div>
+                <form action="principalAdmin.php" method="POST">
+                    <button type="submit">ATRAS</button>
+                    </form>
 
                 
                 

@@ -25,9 +25,7 @@
                 
                 <form class="box" action="guardarCategoria.php" method="POST">
                 <h1 class="center" type="center">Registro de Categoria</h1>
-                <input type="text" name="nueva_categoria_nombre" placeholder="Nueva categoria" required>            
-                <!-- <input type="text" maxLenght="3" name="nueva_categoria_codigo" placeholder="Codigo de 3 caracteres" required> -->
-            
+                <input type="text" name="categoriaNombre" placeholder="Nueva categoria" required>            
                 <button type="submit">Guardar</button>
                     
                 </form>
