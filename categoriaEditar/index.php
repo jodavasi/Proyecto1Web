@@ -46,7 +46,7 @@
                 <div class="alert alert-primary" role="alert">
                     <h3>Categoria: <?php echo $dato['nombre'];
                     $datoNombre = $dato['nombre']?></h3>
-                    <h3>Codigo: <?php echo $dato['cod_categoria']?></h3>
+                    <!-- <h3>Codigo: <?php //echo $dato['cod_categoria']?></h3> -->
                     <a href="index.php?id=<?php echo $dato['nombre']?>">Editar</a>
                 </div>
                 <?php
@@ -65,7 +65,7 @@
                                 <form method="GET" action="editarCategoria.php" class="box">
                                     <h1>EDITAR</h1>
                                     <input type="text" class="form-control" name="edit_categoria" value="<?php echo $resultado_unico['nombre']?>">
-                                    <input type="text" class="form-control" name="edit_codigo" value="<?php echo $resultado_unico['cod_categoria']?>">
+                                    <input type="hidden" class="form-control" name="edit_codigo" value="<?php echo $resultado_unico['cod_categoria']?>">
                                     <input type="hidden" class="form-control" name="categoria_actual" value="<?php echo $resultado_unico['nombre']?>">
                                     <button type="submit">Guardar</button>
                                 </form>

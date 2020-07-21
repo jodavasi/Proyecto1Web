@@ -4,10 +4,10 @@
     
     session_start();
     $nueva_categoria_nombre = $_POST['nueva_categoria_nombre'];
-    $nueva_categoria_codigo = $_POST['nueva_categoria_codigo'];
+    // $nueva_categoria_codigo = $_POST['nueva_categoria_codigo'];
 
-    $sql_agregar = 'INSERT INTO categoria(nombre,cod_categoria) VALUES (?,?)';
+    $sql_agregar = 'INSERT INTO categoria(nombre) VALUES (?)';
     $sentencia_agregar  = $pdo->prepare($sql_agregar);
-    $sentencia_agregar->execute(array($nueva_categoria_nombre,$nueva_categoria_codigo));
+    $sentencia_agregar->execute(array($nueva_categoria_nombre));
     header("Location: ../principalAdmin.php");
 ?>

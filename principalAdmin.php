@@ -45,10 +45,8 @@
           Productos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Ver Productos</a>
-          <a class="dropdown-item" href="#">Eliminar Productos</a>
-          <a class="dropdown-item" href="#">Editar Productos</a>
-          <a class="dropdown-item" href="#">Llenar Productos</a>
+          <a class="dropdown-item" href="productoVer">Ver Productos</a>
+          <a class="dropdown-item" href="productoCrear">Crear Producto</a>
         </div>
       </li>
       <li class="nav-item">
