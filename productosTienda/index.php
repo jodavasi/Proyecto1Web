@@ -76,12 +76,12 @@
                     foreach($resultado_unico as $dato):
                 ?>
                 <form action="agregarCarito.php" method="POST">
-                <div class="alert alert-primary" name="productos" role="alert">
+                <div class="alert alert-dark" name="productos" role="alert">
                     <p><?php echo $dato['categoria']?></p>
                     <h3><?php echo $dato['nombre']?></h3>
                     <h5>$<?php echo $dato['precio']?></h5>
                     <p><?php echo $dato['descripcion']?></p>
-                    <input type="hidden" name="producNombre" value="<?php echo $dato['nombre']?>" required>
+                    <input type="hidden" name="producNombre " value="<?php echo $dato['nombre']?>" required>
                     <input type="hidden" name="producPrecio" value="<?php echo $dato['precio']?>" required>
                     <input type="hidden" name="producSKU" value="<?php echo $dato['SKU']?>" required>
                     <input type="hidden" name="username" value="<?php session_start();

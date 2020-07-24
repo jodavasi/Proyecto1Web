@@ -45,7 +45,7 @@
                 <?php
                     foreach($resultado as $dato):
                 ?>
-                <div class="alert alert-primary" role="alert">
+                <div class="alert alert-dark" role="alert">
                     <h3>Categoria: <?php echo $dato['nombre'];
                     $datoNombre = $dato['nombre']?></h3>
                     <!-- <h3>Codigo: <?php //echo $dato['cod_categoria']?></h3> -->

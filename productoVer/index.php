@@ -55,18 +55,21 @@
                 <?php
                     foreach($resultado as $dato):
                 ?>
-                <div class="alert alert-primary" role="alert">
-                    <p><?php echo $dato['categoria']?></p>
-                    <h3><?php echo $dato['nombre']?></h3>
-                    <h5>$<?php echo $dato['precio']?></h5>
-                    <p><?php echo $dato['descripcion']?></p>
-                    <p><?php echo $dato['stock']?></p>
+                    <div class="contenedor_general">
+                        <div class="alert alert-dark" role="alert">
+                            <p><?php echo $dato['categoria']?></p>
+                            <h3><?php echo $dato['nombre']?></h3>
+                            <h5>$<?php echo $dato['precio']?></h5>
+                            <p><?php echo $dato['descripcion']?></p>
+                            <p><?php echo $dato['stock']?></p>
 
-                    <img src="../img/<?php echo $dato['imagen']?>" alt="">
-                    <br>
-                    <a href="index.php?id=<?php echo $dato['nombre']?>">Editar</a>
-                    <a href="eliminarProducto.php?id=<?php echo $dato['SKU']?>">Eliminar</a>
-                </div>  
+                            <img src="../img/<?php echo $dato['imagen']?>" alt="">
+                            <br>
+                            <a href="index.php?id=<?php echo $dato['nombre']?>">Editar</a>
+                            <a href="eliminarProducto.php?id=<?php echo $dato['SKU']?>">Eliminar</a>
+                        </div> 
+                    </div>
+
                 <?php
                     endforeach
                 ?>
@@ -87,16 +90,18 @@
                                     <input type="text" name="productoDescripcion_edit" placeholder="Descripcion" value="<?php echo $resultado_unico['descripcion']?>">            
                                     <input type="file" name="productoImage_edit" placeholder="" require>  
                                     <br> 
-                                    <br>             
-                                    <select name="productoCategoria_edit" id="productoCategoria">
-                                        <?php
-                                            foreach($resultado_categoria as $dato):
-                                        ?>
-                                        <option value="<?php echo $dato['nombre']?>"><?php echo $dato['nombre']?></option>
-                                        <?php
-                                            endforeach
-                                        ?>
-                                    </select>                     
+                                    <br>  
+                                    <div id="selector">           
+                                        <select name="productoCategoria_edit" id="productoCategoria">
+                                            <?php
+                                                foreach($resultado_categoria as $dato):
+                                            ?>
+                                            <option value="<?php echo $dato['nombre']?>"><?php echo $dato['nombre']?></option>
+                                            <?php
+                                                endforeach
+                                            ?>
+                                        </select>  
+                                    </div>                   
                                     <input type="text" name="productoStock_edit" placeholder="Stock" value="<?php echo $resultado_unico['stock']?>">            
                                     <input type="text" name="productoPrecio_edit" placeholder="Precio(Dolares Americanos)" value="<?php echo $resultado_unico['precio']?>">  
                                     <input type="hidden" class="form-control" name="SKU_actual" value="<?php echo $resultado_unico['SKU']?>">          

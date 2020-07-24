@@ -68,7 +68,7 @@
                     foreach($resultado as $dato):
                 ?>
                 <form action="comprar.php" method="POST">
-                <div class="alert alert-primary" name="productos" role="alert">
+                <div class="alert alert-dark" name="productos" role="alert">
                     <h3><?php echo $dato['nombre']?></h3>
                     <h5>$<?php echo $dato['precio']?></h5>
                     <p><?php echo $dato['producto_SKU']?></p>
