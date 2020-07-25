@@ -44,7 +44,7 @@
     $sentencia_eliminar  = $pdo->prepare($sql_eliminar);
     $sentencia_eliminar->execute(array($compraSKU));
 
-    //dashboard voy por aqui
+    //dashboard
 
     $historico='h';
     $sql_leer = 'SELECT * FROM dashboard';

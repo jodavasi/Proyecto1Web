@@ -1,5 +1,15 @@
 <?php
+    include_once '../conexionDB.php';
 
+    
+
+
+    $sql_leer = 'SELECT * FROM venta ORDER BY id_factura DESC LIMIT 1';
+
+    $gsent = $pdo->prepare($sql_leer);
+    $gsent->execute();
+
+    $resultado = $gsent->fetchAll();
 
 
 ?>
