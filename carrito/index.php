@@ -74,6 +74,8 @@
                     <h3><?php echo $dato['nombre']?></h3>
                     <h5>$<?php echo $dato['precio']?></h5>
                     <p><?php echo $dato['producto_SKU']?></p>
+                    <input type="text" name="producCantidad" value="<?php echo $dato['cantidad']?>" required>
+
                     <input type="hidden" name="producSKU" value="<?php echo $dato['producto_SKU']?>" required>
                     <input type="hidden" name="username" value="<?php echo $dato['usuario'] ?>">
                     <input type="hidden" name="producNombre" value="<?php echo $dato['nombre']?>" required>
