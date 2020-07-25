@@ -17,7 +17,9 @@
 
     $resultado = $gsent->fetchAll();
 
-    var_dump($resultado);
+    //var_dump($resultado);
+
+    
 
     
 
@@ -38,7 +40,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/categoriaEditar.css">
+    <link rel="stylesheet" href="../css/carrito.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -55,7 +57,7 @@
 <div class="buscador col-sm-12">
 
 </div>
-      <div class="">
+      <div class="center">
       <h1>CARRITO!!!</h1>
       </div>
     
@@ -76,15 +78,19 @@
                     <input type="hidden" name="username" value="<?php echo $dato['usuario'] ?>">
                     <input type="hidden" name="producNombre" value="<?php echo $dato['nombre']?>" required>
                     <input type="hidden" name="producPrecio" value="<?php echo $dato['precio']?>" required>
-                    
+                    <div class="box">
+                    <button action="submit" type="submit">Comprar</button>
+                    <a href="eliminar.php?id=<?php echo $dato['producto_SKU']?>" type="suso">Eliminar</a>
+
+                    </div> 
 
 
                     
 
                     <img src="../img/<?php echo $dato['imagen']?>" alt="">
                     <br>
-                    <button action="submit">comprar!</button>
                     </form>
+            
                 </div>  
                 <?php
                     endforeach
@@ -95,8 +101,17 @@
                 
             </div>
         </div>
+        <div class="box">
+            <form action="../principalCliente.php">
+                    <button action="submit" type="submit">Atras</button>
+                    
+                
+            </form>    
+        </div> 
 
     </div>
+
+    
 
 </body>
 </html>

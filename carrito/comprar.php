@@ -13,6 +13,12 @@
 
     $date = new DateTime();
     $fechaActual = $date->format('d-m-Y');
+
+    $compraCantidad= $_POST['producCantidad'];
+
+
+
+
     // echo $fechaActual;
 
 
@@ -31,12 +37,12 @@
    
     //crea factura
 
-    // $sql_agregar = 'INSERT INTO venta(fecha,precio,producto_nombre,producto_SKU,usuario) VALUES (?,?,?,?,?)';
-    // $sentencia_agregar  = $pdo->prepare($sql_agregar);
-    // $sentencia_agregar->execute(array($fechaActual,$compraPrecio,$compraNombre,$compraSKU,$compraUser));
+    $sql_agregar = 'INSERT INTO venta(fecha,precio,producto_nombre,producto_SKU,usuario) VALUES (?,?,?,?,?)';
+    $sentencia_agregar  = $pdo->prepare($sql_agregar);
+    $sentencia_agregar->execute(array($fechaActual,$compraPrecio,$compraNombre,$compraSKU,$compraUser));
     
     
-    //elimina el carrito 
+    //elimina de carrito 
     // $sql_eliminar = 'DELETE FROM carrito WHERE producto_SKU=?';
     // $sentencia_eliminar  = $pdo->prepare($sql_eliminar);
     // $sentencia_eliminar->execute(array($compraSKU));
